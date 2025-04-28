@@ -1,0 +1,519 @@
+body{
+    font-style: italic;
+    max-height: 100vh;
+    min-height: 100vh;
+    min-width: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+/*EXTRAS*/
+header,div,nav,ul,section,aside,main,footer,body,h3{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+}
+
+summary{
+    text-align: center;
+    text-wrap: balance;
+}
+
+p{
+text-wrap: pretty;
+}
+
+summary,.nav-a,footer{
+    color: #fff;
+}
+
+details{
+    border: 2px solid #c0c;
+    color: #fff;
+}
+
+details:hover{
+    border: none;
+}
+
+.aside-ul:hover,.modos-options:hover,.starts-options:hover{
+    background-color: #0007;
+}
+/*HEADER*/
+.header{
+min-width: 100%;
+height: auto;
+position: sticky;
+top: 0;
+z-index: 1;
+box-shadow:0 0 30px #00f ;
+}
+
+.nav{
+    flex: 1 1 0;
+    justify-content:space-evenly ;
+     background:url("minecraft-title.webp")center/cover scroll no-repeat;
+     padding: .1rem;
+}
+
+.nav-ul{
+min-width: 100%;
+display: flex;
+padding:.6rem;
+font-size: 1.13rem;
+gap: 1rem;
+}
+
+.nav-li{
+list-style: none;
+flex: 1 1 0;
+}
+
+.nav-li:hover{
+transition: background-color .4s,border-radius 1s,outline .3s,box-shadow .3s;
+outline-offset: 2px;
+outline:1px solid #00f;
+border-radius: 9%;
+background: #00f4;
+box-shadow: 0 0 20px #00f;
+}
+
+.nav-a{
+text-decoration: none;
+letter-spacing: .3rem;
+}
+
+/*MAIN,SECTIONS,ASIDE*/
+
+/*GRID*/
+.grid{
+    min-width: 100%;
+    min-height: 87vh;
+    flex: 1 1 auto;
+grid-template-columns:repeat(4,minmax(150px,1fr));
+ grid-template-rows:repeat(2,minmax(150px,auto))  minmax(100px,auto);
+grid-auto-rows:1fr;
+grid-auto-columns: 1fr;
+grid-auto-flow: row;
+grid-template-areas:"modos definicion starts aside" "consejos consejos consejos aside" "player player player aside";
+}
+
+/*MODOS*/
+.modos{
+grid-area: modos;
+background:url("enderman1.jpg")bottom/cover scroll no-repeat;
+}
+
+.modos-options:hover{
+    border: #0f0 solid 2px;
+}
+
+.modos-title:hover{
+color: #0f0;
+}
+
+.modos-li{
+margin: 1rem 0rem;
+margin-top: 0;
+text-align: center;
+list-style: none;
+}
+
+.modos-li:not(:last-child){
+    border-bottom: #0f0 solid 1px;
+}
+
+.modos:has(.modos-options:hover)~.definicion,.modos:has(.modos-options:hover)~.starts,.modos:has(.modos-options:open)~.definicion,.modos:has(.modos-options:open)~.starts{
+    display: none;
+}
+
+.modos:has(.modos-options:hover),.modos:has(.modos-options:open){
+   grid-column: span 3;
+   background:url("definicion-m.webp")bottom/cover fixed no-repeat;
+   transition: background .5s;
+   filter: drop-shadow(0 0 10px #0f0);
+}
+
+/*DEFINITION*/
+.definicion{
+grid-area:definicion;
+background:url("enderman.jpg")center/cover scroll no-repeat;
+}
+
+.definicion details:open{
+    border: none;
+}
+
+.definicion-p{
+text-align: center;
+margin-top: rem;
+font-size: 1.2rem;
+}
+
+.definicion:has(.definicion-options:hover)~.starts{
+display: none;
+}
+
+.definicion:has(.definicion-options:hover),.definicion:has(.definicion-options:open){
+grid-column: 1/span 3;
+background:url("start-m.jpg")bottom/cover fixed no-repeat; 
+transition: background .3s;
+filter: drop-shadow(0 0 10px #00f);
+}
+
+/*STARTS*/
+.starts{
+grid-area: starts;
+background:url("enderman2.jpg")bottom/cover scroll no-repeat;
+}
+
+.starts-title:hover{
+color: #ff0;
+}
+
+
+.starts-options:hover{
+border: 2px solid #ff0;
+}
+
+.starts-li{
+text-align: center;
+list-style: none;
+margin: 1rem 0rem;
+margin-top: .3rem;
+}
+
+.starts-li:not(:last-child){
+    border-bottom: 1px solid #ff0;
+}
+
+.starts:has(.starts-options:hover),.starts:has(.starts-options:open){
+    grid-column:1/ span 3;
+    background:url("modos-m.jpg")center/cover fixed no-repeat;
+    transition: background .4s;
+    filter: drop-shadow(0 0 10px #ff0);
+}
+
+/*CONSEJOS*/
+.consejos{
+    background:url("dragon-end1.jpg")bottom/cover fixed no-repeat;
+grid-area: consejos;
+}
+
+.consejos-options:hover{
+border: 2px solid #f50;
+}
+
+.consejos:has(.consejos-options:hover){
+    filter: drop-shadow(0 0 10px #f90);
+}
+
+.consejos-title:hover{
+    color: #f50;
+}
+
+.consejos-li{
+list-style: none;
+margin: 4rem 0;
+margin-top: .5rem;
+text-align: center;
+}
+
+.consejos-li:not(:last-child){
+    border-bottom: 2px solid #f50;
+}
+
+/*PLAYER*/
+.player{
+    background:url("dragon-end2.jpg")bottom/cover fixed no-repeat;
+grid-area: player;
+background-color: #000;
+}
+
+.player-options:hover{
+border: 2px solid #f00;
+}
+
+.player-title:hover{
+color: red;
+}
+
+.player-p{
+font-size:1.13rem;
+margin-bottom: 6.5rem;
+}
+
+.player:has(.player-options:hover){
+    filter: drop-shadow(0 0 10px #f00);
+}
+
+/*ASIDE*/
+.aside{
+    grid-area: aside;
+    position: relative;
+    right: 0;
+    background:url("lobo.webp")center/cover scroll no-repeat;
+}
+
+.aside-ul{
+    min-width: 99%;
+max-width: 99%;
+max-height:100%;
+min-height: 100%;
+margin-left: 1rem;
+position: relative;
+left: -.9rem;
+top: -.5rem;
+}
+
+.aside-li{
+list-style: none;
+margin: .5rem 0 4rem 0;
+}
+
+.aside-li:last-child{
+    margin-bottom: 0;
+}
+
+.aside-a{
+    color: #fff;
+}
+.aside-a:not( :is(:hover,:active)){
+    text-decoration: none;
+}
+
+/*FOOTER*/
+.footer{
+background: linear-gradient(#000 20%,#f00);
+box-shadow:0 0 30px #f00;
+min-width: 100%;
+max-width: 100%;
+}
+
+.footer-div{
+outline: 1px solid #f00;
+outline-offset: .6rem;
+font-size: 1.2rem;
+margin: .6rem 0;
+position: relative;
+}
+
+.footer-p{
+font-size: 1rem;
+}
+
+.footer-img{
+    position: absolute;
+    width: 8rem;
+    height: 5rem;
+    top: -1.8rem;
+    left: 76%;
+}
+
+/*TABLET*/
+@media screen and (max-width:754px){
+    .aside{
+        display: none;
+    }
+
+    .grid{
+        grid-template-columns:repeat(3,minmax(150px,1fr));
+        grid-template-areas:"modos definicion starts" "consejos consejos consejos " "player player player";
+    }
+
+    .footer-img{
+        left: 73%;
+    }
+}
+
+/*CELULAR*/
+@media screen and (max-width:600px){
+    .footer-img{
+        left: 65%;
+    }
+
+
+    .nav{
+        background:url("minecraft-title.webp")top/cover scroll no-repeat;  
+    }
+
+    .nav-a{
+        letter-spacing:.1rem;
+    }
+
+    .nav-li:active{
+        transition: background-color .4s,border-radius 1s,outline .3s,box-shadow .3s;
+        outline-offset: 2px;
+        outline:1px solid #00f;
+        border-radius: 9%;
+        background: #00f4;
+        box-shadow: 0 0 20px #00f;
+        }
+    
+        .modos-options:active{
+            border: #0f0 solid 2px;
+        }
+        
+        .modos-title:active{
+        color: #0f0;
+        }
+    
+        .modos:has(.modos-options:active)~.definicion,.modos:has(.modos-options:active)~.starts,.modos:has(.modos-options:open)~.definicion,.modos:has(.modos-options:open)~.starts{
+            display: none;
+        }
+        
+        .modos:has(.modos-options:active),.modos:has(.modos-options:open){
+           grid-column: span 3;
+           background:url("definicion-m.webp")bottom/cover fixed no-repeat;
+           transition: background .5s;
+           filter: drop-shadow(0 0 10px #0f0);
+        }
+    
+        .definicion:has(.definicion-options:active)~.starts{
+            display: none;
+            }
+            
+            .definicion:has(.definicion-options:active),.definicion:has(.definicion-options:open){
+            grid-column: 1/span 3;
+            background:url("start-m.jpg")bottom/cover fixed no-repeat; 
+            transition: background .3s;
+            filter: drop-shadow(0 0 10px #00f);
+            }
+    
+            .starts-title:active{
+                color: #ff0;
+                }
+                    
+                .starts-options:active{
+                border: 2px solid #ff0;
+                }
+    
+                .starts:has(.starts-options:hover),.starts:has(.starts-options:active){
+                    grid-column:1/ span 3;
+                    background:url("modos-m.jpg")center/cover fixed no-repeat;
+                    transition: background .4s;
+                    filter: drop-shadow(0 0 10px #ff0);
+                }
+                
+                .consejos-options:active{
+                    border: 2px solid #f50;
+                    }
+                    
+                    .consejos:has(.consejos-options:active){
+                        filter: drop-shadow(0 0 10px #f90);
+                    }
+                    
+                    .consejos-title:active{
+                        color: #f50;
+                    }
+                    
+    .player-options:active{
+        border: 2px solid #f00;
+        }
+        
+        .player-title:active{
+        color: red;
+        }
+    
+        .player:has(.player-options:active){
+            filter: drop-shadow(0 0 10px #f00);
+        }
+}
+
+/* AJUSTE PANTALLA*/
+@media screen and (max-width:510px){
+    .footer,.grid,.header{
+        min-width: 105%;
+    }
+    
+}
+
+/*CELULAR MUY PEQUEÑO*/
+@media screen and (max-width:481px){
+    .grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        grid-template-areas:"modos definicion starts" "consejos consejos consejos  " "player player player";
+        
+    }
+
+    .footer,.grid,.header{
+        min-width: 120%;
+    }
+    
+
+    .footer-img{
+        height: 5rem;
+        width: 7rem;
+        left:70%;
+        top: -130%;
+    }
+
+    .nav-a{
+        letter-spacing: 0;
+        font-size: 1rem;
+    }
+}
+
+/*ALERTA*/
+.alerta{
+    position: absolute;
+    padding: 0 0 0 5% ;
+    min-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    background-color: #000;
+    color:#f00;
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+    line-height: 2.3rem;
+}
+
+label{
+    font-size: 1.2rem;
+    margin-right: 1.5rem;
+    color: #ff0;
+}
+
+span{
+    color: #0f0;
+   text-decoration: underline;
+}
+
+input[type=email]{
+    background-color: #000;
+    padding:.12rem 1.2rem ;
+    color: #ff0;
+}
+
+input[type=email]::placeholder{
+    letter-spacing: .1rem;
+}
+
+input[type=email]:user-invalid,label:has(input:user-invalid){
+    color: #f00;
+    }
+
+.nota-alerta{
+    color: #00f;
+}
+
+.grid,.header,.footer{
+    display: none;
+}
+
+.alerta:has(input[type=email]:user-valid){
+    display: none;
+}
+
+.alerta:has(input[type=email]:user-valid)~.grid{
+    display: grid;
+}
+
+.alerta:has(input[type=email]:user-valid)~.footer{
+    display: initial;
+}
+
+.alerta:has(input[type=email]:user-valid)~.header{
+display: flex;
+}
